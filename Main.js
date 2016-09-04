@@ -1,14 +1,14 @@
 var readline = require('readline')
 var Prototypes = require('./Prototypes')
 
-var Player = Prototypes.Player
-var Player2 = Prototypes.Player
 
+var Player1 = Prototypes.Player
+var Player2 = Prototypes.Player
 
 var rl = readline.createInterface(process.stdin, process.stdout);
 rl.question("What is your name? ", function(answer) {
-    Player.name = answer
-    console.log('Welcome to the battle, ' + Player.name + '!' )
+    Player1.name = answer
+    console.log('Welcome to the battle, ' + Player1.name + '!' )
     rl.close()
     MenuPhase();
 });
@@ -33,5 +33,5 @@ function SwitchPokemon() {
 }
 
 function Items() {
-  
+
 }
