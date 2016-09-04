@@ -14,5 +14,6 @@ module.exports.Pokemon = new function() {
 
 module.exports.Move = new function() {
   this.damage;
+  this.recursionChance;
   this.name;
 }
