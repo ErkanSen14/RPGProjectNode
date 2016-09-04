@@ -2,6 +2,6 @@
 An RPG game demonstrating OOP and other coding concepts in a simple RPG game.
 
 
-*To run:*
+**To run:**
 
-Clone folder then ```node Main.js```
+Clone folder then ```node Main.js``` in the terminal.
