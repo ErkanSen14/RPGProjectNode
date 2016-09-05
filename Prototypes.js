@@ -1,20 +1,21 @@
-module.exports.Player = new function() {
-  this.name;
-  this.pokemon;
-  this.items;
+exports.Pokemon = function(name,moves,atk,hp,def,dodge) {
+  this.name = name;
+  this.moves = moves;
+  this.atk = atk;
+  this.hp = hp;
+  this.def = def;
+  this.dodge = dodge;
 }
 
-module.exports.Pokemon = new function() {
-  this.moves;
-  this.atk;
-  this.hp;
-  this.def;
-  this.dodge;
-}
-
-module.exports.Move = new function() {
+exports.Move = function() {
   this.damage;
   this.recursionChance;
   this.criticalChance;
   this.name;
+}
+
+exports.Player = function() {
+  this.name;
+  this.pokemon;
+  this.items;
 }

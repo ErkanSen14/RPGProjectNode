@@ -1,9 +1,9 @@
 var readline = require('readline')
-var Prototypes = require('./Prototypes')
+var Player = require('./Prototypes').Player
 
 
-var Player1 = Prototypes.Player
-var Player2 = Prototypes.Player
+var Player1 = new Player();
+var Player2 = Player
 
 var rl = readline.createInterface(process.stdin, process.stdout);
 rl.question("What is your name? ", function(answer) {
