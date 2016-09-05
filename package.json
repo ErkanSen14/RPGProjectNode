@@ -1,0 +1,23 @@
+{
+  "name": "RPGProjectNode",
+  "version": "1.0.0",
+  "description": "An RPG game demonstrating OOP and other coding concepts in a simple RPG game.",
+  "main": "Main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErkanSen14/RPGProjectNode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErkanSen14/RPGProjectNode/issues"
+  },
+  "homepage": "https://github.com/ErkanSen14/RPGProjectNode#readme",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
+}
