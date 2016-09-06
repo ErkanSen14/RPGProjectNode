@@ -10,5 +10,7 @@ exports.switchPokemon = function(player, pokemon1, pokemon2) {
 exports.pokemonDied = function(player, pokemon1, pokemon2) {
   player.currentPokemon = pokemon2;
   pokemon2.status = 'battling';
-  pokemon1.status = 'dead';
+  pokemon1.status = 'fainted';
+
+  return pokemon1.status;
 }
