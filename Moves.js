@@ -27,7 +27,7 @@ var Takedown = new Move('Takedown', 60)
 var Tail_Whip = new Move('Tail Whip', 30)
 var Quick_Attack = new Move('Quick Attack', 50)
 var Thunder = new Move('Thunder', 40)
-var Thunder_Bolt: { Damage: 60}
+var Thunder_Bolt = new Move('Thunder_Bolt', 60)
 var Confusion_Array = new Move('Confusion Array', 40)
 var Sing = new Move('Sing', 50)
 var Gyro_Ball = new Move('Gyro Ball', 40)
@@ -39,3 +39,17 @@ var Giga_Drain = new Move('Giga Drain', 60)
 var Telekinesis = new Move('Telekinesis', 50)
 var Psychic = new Move('Psychic', 40)
 var Psybeam = new Move('Psybeam', 60)
+
+
+exports.Charizard = [Flame_Thrower, Ember, Fly, Dragon_Claw]
+exports.Venusaur = [Razor_Leaf, Vine_Whip, Leech_Seed, Solar_Beam]
+exports.Blastoise = [Water_Gun, Hydro_Pump, Water_pulse, Bubble]
+exports.Psyduck = [Scratch, Tail_Whip, Water_Gun, Confusion]
+exports.Gastly = [Hypnosis, Mean_Look, Payback, Shadow_Ball]
+exports.Gyarados = [Aqua_Tail, Crunch, Hydro_Pump, Hyper_Beam]
+exports.Snorlax = [Razor_Leaf, Vine_Whip, Pound, Takedown]
+exports.Pikachu = [Tail_Whip, Quick_Attack, Thunder, Thunder_Bolt]
+exports.Ninetales = [Flame_Thrower, Quick_Attack, Confusion_Array, Ember]
+exports.Jigglypuff = [Pound, Sing, Gyro_Ball, Hyper_Voice]
+exports.Gloom = [Acid, Absorb, Toxic, Giga_Drain]
+exports.Alakazam = [Confusion, Telekinesis, Psychic, Psybeam]
