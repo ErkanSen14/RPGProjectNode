@@ -8,11 +8,11 @@ exports.Pokemon = function(name,moves,atk,maxHP,def,dodge) {
   this.dodge = dodge;
 }
 
-exports.Move = function() {
-  this.name;
-  this.damage;
-  this.recursionChance;
-  this.criticalChance;
+exports.Move = function(name, damage, recursionChance, criticalChance) {
+  this.name = name;
+  this.damage = damage;
+  this.recursionChance = recursionChance;
+  this.criticalChance = criticalChance;
 }
 
 exports.Player = function() {

@@ -1,87 +1,41 @@
-var moves = {
-    Charizard: {
-        Flame_Thrower: { Damage: 50},
-        Ember: { Damage: 20},
-        Fly: { Damage: 40},
-        Dragon_Claw: {Damage: 60}
-    },
+var Move = require('./Prototypes.js').Move
 
-    Blastoise: {
-        Water_Gun: { Damage: 50 },
-        Hydro_Pump: { Damage: 60},
-        Water_pulse: { Damage: 40 },
-        Bubble: { Damage: 20}
-    },
-
-    Venusaur: {
-        Razor_Leaf: { Damage: 40},
-        Vine_Whip: { Damage: 50},
-        Leech_Seed: { Damage: 10, repeat: true},
-        Solar_Beam: { Damage: 60}
-    },
-
-    Psyduck: {
-        Scratch: { Damage: 30},
-        Tail_Whip: { Damage: 20},
-        Water_Gun: { Damage: 40},
-        Confusion: { Damage: 60}
-    },
-
-    Gastly: {
-        Hypnosis: { Damage: 30},
-        Mean_Look: { Damage: 50},
-        Payback: { Damage: 40},
-        Shadow_Ball: { Damage: 60}
-    },
-
-    Gyarados: {
-        Aqua_Tail: { Damage: 30},
-        Crunch: { Damage: 50},
-        Hydro_Pump: { Damage: 40},
-        Hyper_Beam: { Damage: 60}
-    },
-
-    Snorlax: {
-        Razor_Leaf: { Damage: 30},
-        Vine_Whip: { Damage: 50},
-        Pound: { Damage: 40},
-        Takedown: { Damage: 60}
-    },
-
-    Pikachu: {
-        Tail_Whip: { Damage: 30},
-        Quick_Attack: { Damage: 50},
-        Thunder: { Damage: 40},
-        Thunder_Bolt: { Damage: 60}
-    },
-
-    Ninetales: {
-        Flame_Thrower: { Damage: 30},
-        Quick_Attack: { Damage: 50},
-        Confusion_Array: { Damage: 40},
-        Ember: { Damage: 60}
-    },
-
-    Jigglypuff: {
-        Pound: { Damage: 30},
-        Sing: { Damage: 50},
-        Gyro_Ball: { Damage: 40},
-        Hyper_Voice: { Damage: 60}
-    },
-    Gloom: {
-        Acid: { Damage: 30},
-        Absorb: { Damage: 50},
-        Toxic: { Damage: 40},
-        Giga_Drain: { Damage: 60}
-    },
-
-    Alakazam: {
-        Confusion: { Damage: 30},
-        Telekinesis: { Damage: 50},
-        Psychic: { Damage: 40},
-        Psybeam: { Damage: 60}
-    }
-}
-
-
-module.exports = moves;
+var Flame_Thrower = new Move('Flame Thrower', 50)
+var Ember = new Move('Ember', 20)
+var Fly = new Move('Fly', 40)
+var Dragon_Claw = new Move('Dragon Claw', 60)
+var Water_Gun = new Move('Water Gun', 50)
+var Hydro_Pump = new Move('Hydro Pump', 60)
+var Water_pulse = new Move('Water Pulse', 40)
+var Bubble = new Move('Bubble', 20)
+var Razor_Leaf = new Move('Razor Leaf', 40)
+var Vine_Whip = new Move('Vine Whip', 50)
+var Leech_Seed = new Move('Leech Seed', 10, true)
+var Solar_Beam = new Move('Solar Beam', 60)
+var Scratch = new Move('Scratch', 30)
+var Tail_Whip = new Move('Tail Whip',20)
+var Confusion = new Move('Confusion', 60)
+var Hypnosis = new Move('Hypnosis', 30)
+var Mean_Look = new Move('Mean Look', 20)
+var Payback = new Move('Payback', 40)
+var Shadow_Ball = new Move('Shadow Ball', 60)
+var Aqua_Tail = new Move('Aqua Tail', 30)
+var Crunch = new Move('Crunch', 50)
+var Hyper_Beam = new Move('Hyper Beam', 60)
+var Pound = new Move('Pound', 40)
+var Takedown = new Move('Takedown', 60)
+var Tail_Whip = new Move('Tail Whip', 30)
+var Quick_Attack = new Move('Quick Attack', 50)
+var Thunder = new Move('Thunder', 40)
+var Thunder_Bolt: { Damage: 60}
+var Confusion_Array = new Move('Confusion Array', 40)
+var Sing = new Move('Sing', 50)
+var Gyro_Ball = new Move('Gyro Ball', 40)
+var Hyper_Voice = new Move('Hyper Voice', 60)
+var Acid = new Move('Acid', 30)
+var Absorb = new Move('Absorb', 50)
+var Toxic = new Move('Toxic', 40)
+var Giga_Drain = new Move('Giga Drain', 60)
+var Telekinesis = new Move('Telekinesis', 50)
+var Psychic = new Move('Psychic', 40)
+var Psybeam = new Move('Psybeam', 60)
