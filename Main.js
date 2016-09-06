@@ -15,7 +15,7 @@ rl.question('What is your name? ', function(answer) {
     Player1.name = answer
     console.log('Welcome to the battle, ' + Player1.name + '!' )
     rl.close()
-    MenuPhase();
+    SwitchPokemon();
 });
 
 /* Main Menu */
