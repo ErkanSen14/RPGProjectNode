@@ -1,6 +1,7 @@
 var colors = require('colors')
 var Pokemon = require('./Prototypes')
 var Moves = require('./Moves')
+
 /* Creating Pokemon [name,moves,maxHP,atk,defense,dodge] */
 var Pikachu = new Pokemon.Pikachu('Pikachu',Moves.Pikachu,55,35,40,90);
 
