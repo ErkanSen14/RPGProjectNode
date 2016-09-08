@@ -1,3 +1,4 @@
+var counter = 1;
 exports.switchPokemon = function(player, pokemon1, pokemon2) {
   player.currentPokemon = pokemon2;
   pokemon2.status = 'battling';
@@ -28,16 +29,24 @@ exports.playerAttack = function playerAttack(pokemon, enemy, move) {
 
   if (Math.random() * 10 < reChance) {
     enemy.currentHP -= Math.round(totalDamage);
-    console.log(move.name + ' did ' + totalDamage + ' damage!');
+    console.log(move.name + ' did ' + Math.round(totalDamage) + ' damage!');
+    console.log('Enemy ' + enemy.name + ' health is at ' + enemy.currentHP.toString().red + '!');
+    counter++;
     playerAttack(pokemon,enemy,move);
     return;
   } else if(Math.random() * 10 < critChance) {
-    console.log(move.name + ' crit for ' + (totalDamage * 1.2) + '!');
+    console.log(move.name + ' crit for ' + (Math.round(totalDamage * 1.2)) + '!');
     enemy.currentHP -= Math.round(totalDamage * 1.2);
+    console.log('Enemy ' + enemy.name + ' health is at ' + enemy.currentHP.toString().red + '!');
     return;
   } else {
     enemy.currentHP -= Math.round(totalDamage);
-    console.log(move.name + ' did ' + totalDamage + ' damage!')
+    console.log(move.name + ' did ' + Math.round(totalDamage) + ' damage!');
+    console.log('Enemy ' + enemy.name + ' health is at ' + enemy.currentHP.toString().red + '!');
+    if (counter > 0) {
+      console.log(move.name + ' hit ' + (counter).toString().blue + ' times!');
+      counter = 1;
+    }
     return totalDamage;
   }
 }

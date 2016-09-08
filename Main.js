@@ -59,13 +59,18 @@ function AttackPhase() {
         return;
       }
       if (answer === '1') {
-        SwitchPokemon()
+        Scenarios.playerAttack(Player1.currentPokemon, Player2.currentPokemon, Player1.currentPokemon.moves[1]);
+        MenuPhase();
         return;
       }
       if (answer === '2') {
+        Scenarios.playerAttack(Player1.currentPokemon, Player2.currentPokemon, Player1.currentPokemon.moves[2]);
+        MenuPhase();
         return;
       }
       if (answer === '3') {
+        Scenarios.playerAttack(Player1.currentPokemon, Player2.currentPokemon, Player1.currentPokemon.moves[3]);
+        MenuPhase();
         return;
       }
   });
