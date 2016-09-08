@@ -1,57 +1,38 @@
-function Dictionary() {
-  this.memory = [];
-}
+var Bag = require('./Datastructures/dictionary.js')
 
-Dictionary.prototype.get = function get(key) {
-  return this.memory[key];
-}
+var medicine = [
+  {hpBoost:{quantity:3}},
+  {speedBoost:{quantity: 2}},
+  {defenceBoost:{quantity: 1}},
+  {poisonHeal:{quantity: 3}},
+  {paralysisHeal:{quantity: 2}},
+]
 
-Dictionary.prototype.set = function set(key, value) {
-  this.memory[key] = value;
-}
+var items = [
+  {fishingPole: {quantity: 1}},
+  {bike:{quantity: 3}},
+  {map: {quantity: 2}}
+]
 
-Dictionary.prototype.remove = function remove(key) {
-  if(this.memory[key]) {
-    delete this.memory[key]
-  }
-}
+var pokeballs = [
+  {PokeBalls: {quantity: 34}},
+  {GreatBall: {quantity: 20}},
+  {UltraBall: {quantity: 10}},
+  {MasterBall: {quantity: 1}}
+]
 
-var Bag = new Dictionary();
-
-var medicine = {
-  hpBoost: 3,
-  speedBoost: 3,
-  defenceBoost: 1,
-  poisonHeal: 1,
-  paralysisHeal: 3,
-  poisonHeal: 2
-}
-
-var items = {
-  fishingPole: 1,
-  bike: 1,
-  map: 1
-}
-
-var pokeballs = {
-  PokeBalls: 34,
-  GreatBall: 20,
-  UltraBall: 10,
-  MasterBall: 1
-}
-
-var berries = {
-  attackBerry: 3,
-  defenseBerry: 2,
-  attack_defense_berry: 1,
-  speedBerry: 2
-}
+var berries = [
+  {attackBerry: {quantity: 3}},
+  {defenseBerry: {quantity: 2}},
+  {attack_defense_berry: {quantity:1}},
+  {speedBerry: {quantity:2}}
+]
 
 Bag.set('medicine', medicine );
 Bag.set('items', items);
 Bag.set('pokeballs', pokeballs);
 Bag.set('berries', berries);
 
-//console.log(Bag)
+//console.log(Bag.get('medicine'))
 
 module.exports = Bag;

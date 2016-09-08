@@ -2,6 +2,7 @@ var readline = require('readline')
 var Player = require('./Prototypes').Player
 var Pokemon = require('./Pokemon')
 var Scenarios = require('./Scenarios')
+var theBag = require('./Bag')
 
 /* Creating the Players */
 
@@ -25,18 +26,22 @@ rl.question('What is your name? ', function(answer) {
 /* Main Menu */
 function MenuPhase() {
   var rl = readline.createInterface(process.stdin, process.stdout);
-  rl.question('What do you want to do? \n1.FIGHT\n2.SWITCH\n3.ITEM\n4.QUIT\n', function(answer) {
+  rl.question('What do you want to do? \n1.FIGHT\n2.SWITCH\n3.BAG\n4.QUIT\n', function(answer) {
       rl.close()
-      if (answer === '1') {
+      if(answer === '1') {
         AttackPhase();
         return;
-      }
-      if (answer === '2') {
+      } else if (answer === '2') {
         SwitchPokemon();
         return;
-      }
-      if (answer === '4') {
+      } else if(answer === '3') {
+        Bag();
         return;
+      } else if (answer === '4') {
+        return;
+      } else {
+        console.log('that is not an option')
+        MenuPhase();
       }
   });
 }
@@ -68,7 +73,6 @@ function AttackPhase() {
 
 /* Menu to switch Pokemon, shows hp bars and status ailments */
 function SwitchPokemon() {
-
   var hpString = '';
   for (var x = 0; x < Player1.pokemon.length; x++) {
     for (var i = 0; i < 15 * Player1.pokemon[x].currentHP / Player1.pokemon[x].maxHP ; i++) {
@@ -101,7 +105,107 @@ function SwitchPokemon() {
   });
 
 }
+/* Opening bag function */
+function Bag() {
+  var rl = readline.createInterface(process.stdin, process.stdout);
+  rl.question('What type of item would you like to use? \n1.Medicine\n2.Items\n3.Pokeballs\n4.Berries\n', function(answer) {
+    rl.close();
+    if(answer === '1') {
+      item(1);
+    } else if(answer === '2') {
+      item(2)
+    } else if(answer === '3') {
+      item(3)
+    } else if(answer === '4') {
+      item(4)
+    } else {
+      console.log('That is not an option')
+      Bag();
+    }
+  });
+}
 
-function Items() {
+/* after bag is opened, the items are called here */
+function item(section) {
+  var rl = readline.createInterface(process.stdin, process.stdout);
+  if(section === 1) {
+    var items = theBag.get('medicine');
+    console.log(items)
+      rl.question('What item would you like to use? ', function(answer) {
+        rl.close()
+        if(answer === 'hpBoost') {
+          console.log(items[0].quantity)
+        } else if(answer === 'speedBoost') {
+          console.log('speedBoost')
+        } else if(answer === 'defenceBoost') {
+          console.log('defenceBoost')
+        } else if(answer === 'pisonHeal') {
+          console.log('poisonHeal')
+        } else if(answer === 'paralysisHeal') {
+          console.log('paralysisHeal')
+        }
+        MenuPhase();
+      });
+  } else if(section === 2){
+    var items = theBag.get('items')
+    for(var x = 0; x < items.length; x++) {
+      console.log(items[x])
+    }
+      rl.question('What item would you like to use? ', function(answer) {
+        rl.close()
+        if(answer === 'fishingPole') {
+          console.log('fishingPole')
+        } else if(answer === 'bike') {
+          console.log('bike')
+        } else if(answer === 'map') {
+          console.log('map')
+        } else {
+          console.log('not a valid item!')
+        }
+        MenuPhase();
+      });
+  } else if (section === 3){
+    var items = theBag.get('pokeballs')
+    for(var x = 0; x < items.length; x++) {
+      console.log(items[x])
+    }
+      rl.question('What item would you like to use? ', function(answer) {
+        rl.close()
+        if(answer === 'pokeball') {
+          console.log('pokeball')
+        } else if(answer === 'greatball') {
+          console.log('greatball')
+        } else if(answer === 'ultraball') {
+          console.log('ultraball')
+        } else if(answer === 'masterball') {
+          console.log('masterball')
+        } else {
+          console.log('not a valid item!')
+        }
+        MenuPhase();
+      });
+  } else if (section === 4){
+    var items = theBag.get('berries')
+    for(var x = 0; x < items.length; x++) {
+      console.log(items[x])
+    }
+      rl.question('What item would you like to use? ', function(answer) {
+        rl.close()
+        if(answer === 'attackBerry') {
+          console.log('attackBerry')
+        } else if(answer === 'defenseBerry') {
+          console.log('defenseBerry')
+        } else if(answer === 'attack_defense_berry') {
+          console.log('attack_defense_berry')
+        } else if(answer === 'speedBerry') {
+          console.log('speedBerry')
+        } else {
+          console.log('not a valid item!')
+        }
+        MenuPhase();
+      });
+  } else {
+    console.log('not a valid item!')
+  }
 
 }

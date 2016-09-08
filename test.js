@@ -1,4 +1,3 @@
-var moves = require('./Moves.js')
-var bag = require('./Bag.js')
+var Dictionary = require('./Datastructures/dictionary.js')
 
-console.log(moves)
+Dictionary();
