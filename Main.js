@@ -11,7 +11,7 @@ Player1.pokemon = Pokemon.Player1;
 var Player2 = new Player();
 Player2.name = 'Gary';
 Player2.pokemon = Pokemon.Player2;
-Player2.currentPokemon = Player2.pokemon[Math.round(Math.random() * 6)];
+Player2.currentPokemon = Player2.pokemon[Math.round(Math.random() * 5)];
 
 /* Opening text asking for name */
 var rl = readline.createInterface(process.stdin, process.stdout);
@@ -55,21 +55,103 @@ function AttackPhase() {
       rl.close()
       if (answer === '0') {
         Scenarios.playerAttack(Player1.currentPokemon, Player2.currentPokemon, Player1.currentPokemon.moves[0]);
+        if(Player2.currentPokemon.currentHP <= 0) {
+          Player2.currentPokemon.status = 'fainted';
+          var changePokemon = function() {
+            var poke = Player2.pokemon[Math.round(Math.random() * 5)]
+            if (poke.status === 'fainted') {
+              return changePokemon();
+            } else {
+              return poke;
+            }
+          }
+          Player2.currentPokemon = changePokemon();
+          Player2.currentPokemon.status = 'battling';
+          MenuPhase();
+          return;
+        }
+        Scenarios.enemyAttack(Player2.currentPokemon, Player1.currentPokemon, Player2.currentPokemon.moves[Math.round(Math.random() * 4)]);
+        if(Player1.currentPokemon.currentHP <= 0) {
+          Player1.currentPokemon.status = 'fainted';
+          SwitchPokemon();
+          return;
+        }
         MenuPhase();
         return;
       }
       if (answer === '1') {
         Scenarios.playerAttack(Player1.currentPokemon, Player2.currentPokemon, Player1.currentPokemon.moves[1]);
+        if(Player2.currentPokemon.currentHP <= 0) {
+          Player2.currentPokemon.status = 'fainted';
+          var changePokemon = function() {
+            var poke = Player2.pokemon[Math.round(Math.random() * 5)]
+            if (poke.status === 'fainted') {
+              return changePokemon();
+            } else {
+              return poke;
+            }
+          }
+          Player2.currentPokemon = changePokemon();
+          Player2.currentPokemon.status = 'battling';
+          MenuPhase();
+          return;
+        }
+        Scenarios.enemyAttack(Player2.currentPokemon, Player1.currentPokemon, Player2.currentPokemon.moves[Math.round(Math.random() * 4)]);
+        if(Player1.currentPokemon.currentHP <= 0) {
+          Player1.currentPokemon.status = 'fainted';
+          SwitchPokemon();
+          return;
+        }
         MenuPhase();
         return;
       }
       if (answer === '2') {
         Scenarios.playerAttack(Player1.currentPokemon, Player2.currentPokemon, Player1.currentPokemon.moves[2]);
+        if(Player2.currentPokemon.currentHP <= 0) {
+          Player2.currentPokemon.status = 'fainted';
+          var changePokemon = function() {
+            var poke = Player2.pokemon[Math.round(Math.random() * 5)]
+            if (poke.status === 'fainted') {
+              return changePokemon();
+            } else {
+              return poke;
+            }
+          }
+          Player2.currentPokemon = changePokemon();
+          Player2.currentPokemon.status = 'battling';
+        }
+        Scenarios.enemyAttack(Player2.currentPokemon, Player1.currentPokemon, Player2.currentPokemon.moves[Math.round(Math.random() * 3)]);
+        if(Player1.currentPokemon.currentHP <= 0) {
+          Player1.currentPokemon.status = 'fainted';
+          SwitchPokemon();
+          return;
+        }
         MenuPhase();
         return;
       }
       if (answer === '3') {
         Scenarios.playerAttack(Player1.currentPokemon, Player2.currentPokemon, Player1.currentPokemon.moves[3]);
+        if(Player2.currentPokemon.currentHP <= 0) {
+          Player2.currentPokemon.status = 'fainted';
+          var changePokemon = function() {
+            var poke = Player2.pokemon[Math.round(Math.random() * 5)]
+            if (poke.status === 'fainted') {
+              return changePokemon();
+            } else {
+              return poke;
+            }
+          }
+          Player2.currentPokemon = changePokemon();
+          Player2.currentPokemon.status = 'battling';
+          MenuPhase();
+          return;
+        }
+        Scenarios.enemyAttack(Player2.currentPokemon, Player1.currentPokemon, Player2.currentPokemon.moves[Math.round(Math.random() * 3)]);
+        if(Player1.currentPokemon.currentHP <= 0) {
+          Player1.currentPokemon.status = 'fainted';
+          SwitchPokemon();
+          return;
+        }
         MenuPhase();
         return;
       }
@@ -96,10 +178,12 @@ function SwitchPokemon() {
   /* Switch Pokemon */
   var rl = readline.createInterface(process.stdin, process.stdout);
   rl.question('Choose a Pokemon: ', function(answer) {
-      console.log(answer);
-      console.log(typeof(answer))
       if (answer !== '0' && answer!== '1' && answer !== '2' && answer !== '3' && answer !== '4' && answer !== '5') {
         console.log('You did not choose a valid Pokemon');
+        rl.close();
+        SwitchPokemon();
+      } else if (Player1.pokemon[Number(answer)].status === 'fainted') {
+        console.log('That pokemon has fainted!');
         rl.close();
         SwitchPokemon();
       } else {
@@ -139,12 +223,18 @@ function item(section) {
       rl.question('What item would you like to use? ', function(answer) {
         rl.close()
         if(answer === 'hpBoost') {
-          console.log(items[0].quantity)
+          if(items[0].hpBoost.quantity <= 0) {
+            console.log('Out of HP Boosts!');
+            return;
+          }
+          Player1.currentPokemon.currentHP += 30;
+          console.log('Pokemon ' + Player1.currentPokemon.name + ' health increased by ' + '30 '.green + '!')
+          items[0].hpBoost.quantity -= 1;
         } else if(answer === 'speedBoost') {
           console.log('speedBoost')
         } else if(answer === 'defenceBoost') {
           console.log('defenceBoost')
-        } else if(answer === 'pisonHeal') {
+        } else if(answer === 'poisonHeal') {
           console.log('poisonHeal')
         } else if(answer === 'paralysisHeal') {
           console.log('paralysisHeal')
