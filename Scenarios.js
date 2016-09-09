@@ -53,8 +53,13 @@ exports.playerAttack = function playerAttack(pokemon, enemy, move) {
 
   /* If move crits (can't crit and recurse) */
   else if(Math.random() * 10 < critChance) {
-    console.log(move.name + ' crit for ' + (Math.round(totalDamage * 1.2)) + '!');
-    enemy.currentHP -= Math.round(totalDamage * 1.2);
+    console.log(move.name + ' crit for ' + (Math.round(totalDamage * 4)) + '!');
+    enemy.currentHP -= Math.round(totalDamage * 4);
+    if (enemy.currentHP <= 0) {
+      enemy.currentHP = 0;
+      console.log('Pokemon ' + enemy.name.toString().gray + ' fainted!');
+      return;
+    }
     console.log('Enemy ' + enemy.name.toString().gray + ' health is at ' + enemy.currentHP.toString().red + '!');
     return;
   }
@@ -114,8 +119,8 @@ exports.enemyAttack = function playerAttack(pokemon, enemy, move) {
 
   /* If move crits (can't crit and recurse) */
   else if(Math.random() * 10 < critChance) {
-    console.log(move.name + ' crit for ' + (Math.round(totalDamage * 1.5)) + '!');
-    enemy.currentHP -= Math.round(totalDamage * 1.5);
+    console.log(move.name + ' crit for ' + (Math.round(totalDamage * 4)) + '!');
+    enemy.currentHP -= Math.round(totalDamage * 4);
     if (enemy.currentHP <= 0) {
       enemy.currentHP = 0;
       console.log('Pokemon ' + enemy.name.toString().gray + ' fainted!');

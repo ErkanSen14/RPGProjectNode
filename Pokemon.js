@@ -1,7 +1,8 @@
 var colors = require('colors')
 var Pokemon = require('./Prototypes')
 var Moves = require('./Moves')
-
+var list1 = require('./Datastructures/LinkedList.js')
+var list2 = require('./Datastructures/LinkedList.js')
 /* Creating Pokemon [name,moves,maxHP,atk,defense,dodge] */
 var Pikachu = new Pokemon.Pikachu('Pikachu',Moves.Pikachu,55,35,40,90);
 
@@ -26,8 +27,6 @@ var Jigglypuff = new Pokemon.Jigglypuff('Jigglypuff',Moves.Jigglypuff,115,45,20,
 var Gloom = new Pokemon.Gloom('Gloom',Moves.Gloom,60,65,70,40);
 
 var Alakazam = new Pokemon.Alakazam('Alakazam',Moves.Alakazam,55,50,45,120);
-
-
 
 exports.Player1 = [Pikachu,Venusaur,Charizard,Blastoise,Psyduck,Gastly];
 

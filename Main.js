@@ -70,7 +70,7 @@ function AttackPhase() {
           MenuPhase();
           return;
         }
-        Scenarios.enemyAttack(Player2.currentPokemon, Player1.currentPokemon, Player2.currentPokemon.moves[Math.round(Math.random() * 4)]);
+        Scenarios.enemyAttack(Player2.currentPokemon, Player1.currentPokemon, Player2.currentPokemon.moves[Math.round(Math.random() * 3)]);
         if(Player1.currentPokemon.currentHP <= 0) {
           Player1.currentPokemon.status = 'fainted';
           SwitchPokemon();
@@ -96,7 +96,7 @@ function AttackPhase() {
           MenuPhase();
           return;
         }
-        Scenarios.enemyAttack(Player2.currentPokemon, Player1.currentPokemon, Player2.currentPokemon.moves[Math.round(Math.random() * 4)]);
+        Scenarios.enemyAttack(Player2.currentPokemon, Player1.currentPokemon, Player2.currentPokemon.moves[Math.round(Math.random() * 3)]);
         if(Player1.currentPokemon.currentHP <= 0) {
           Player1.currentPokemon.status = 'fainted';
           SwitchPokemon();
@@ -119,6 +119,8 @@ function AttackPhase() {
           }
           Player2.currentPokemon = changePokemon();
           Player2.currentPokemon.status = 'battling';
+          MenuPhase();
+          return;
         }
         Scenarios.enemyAttack(Player2.currentPokemon, Player1.currentPokemon, Player2.currentPokemon.moves[Math.round(Math.random() * 3)]);
         if(Player1.currentPokemon.currentHP <= 0) {
