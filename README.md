@@ -6,9 +6,6 @@ An RPG game demonstrating OOP and other coding concepts in a simple RPG game.
 
 Clone folder then ```node Main.js``` in the terminal.
 
-
-Week 1 Project - Project
-
 Description: A simple pokemon-like game that has a battle sequence against an AI, pokemon, bag with consumable items,
 
 Requirements:
